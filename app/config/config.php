@@ -13,3 +13,6 @@ define('APPROOT', dirname(dirname(__FILE__)));
 define('URLROOT', 'http://localhost/mvc');
 //Site name
 define('SITENAME', 'SharePost');
+
+//app version 
+define('APPVERSION', '1.0.0');
