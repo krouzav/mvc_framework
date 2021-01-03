@@ -24,6 +24,23 @@ class User
         }
     }
 
+    //login user
+    public function login($email, $password)
+    {
+        $this->db->query('SELECT * FROM mvc.users WHERE email = :email');
+        $this->db->bind(':email', $email);
+
+        $row = $this->db->single();
+
+        $hassed_password = $row->password;
+
+        if (password_verify($password, $hassed_password)) {
+            return $row;
+        } else {
+            return false;
+        }
+    }
+
     //find user by email
     public function findUserByEmail($email)
     {
