@@ -55,4 +55,13 @@ class User
             return false;
         }
     }
+    //get user by ID
+    public function getUserById($id)
+    {
+        $this->db->query('SELECT * FROM mvc.users WHERE id = :id');
+        $this->db->bind(':id', $id);
+        $row = $this->db->single();
+
+        return $row;
+    }
 }
